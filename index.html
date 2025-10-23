@@ -24,6 +24,8 @@
 
   <section class="hero" id="hero">
     <div class="hero-content">
+      <div class="deco-circle deco-circle-1"></div>
+      <div class="deco-line deco-line-1"></div>
       <h2>Lucas.</h2>
       <p>Writing codes with <span class="highlight">impact</span> through <span class="highlight">engineering</span> and <span class="highlight">innovation</span>.</p>
       <div class="button-group">
@@ -31,7 +33,7 @@
         <a href="#certifications" class="btn btn-outline">See Expertise</a>
       </div>
       <div class="social-links">
-        <a href="https://www.linkedin.com/in/lucas-rocha-avelino-59a277249/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
         <a href="https://github.com/your-username" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
@@ -46,6 +48,8 @@
 
   <section id="about">
     <div class="container">
+      <div class="deco-star"></div>
+      <div class="deco-line deco-line-2"></div>
       <h2 class="section-title">About Me</h2>
       <div class="glass-card about-content">
         <p class="about-preview">
@@ -70,6 +74,7 @@
 
   <section id="technologies">
     <div class="container">
+      <div class="deco-circle deco-circle-2"></div>
       <h2 class="section-title">Technologies</h2>
       <div class="tech-grid">
         <div class="tech-item">
@@ -102,43 +107,45 @@
 
   <section id="certifications">
     <div class="container">
+      <div class="deco-line deco-line-3"></div>
+      <div class="deco-star deco-star-2"></div>
       <h2 class="section-title">Certifications</h2>
       <div class="cert-grid">
         <div class="cert-card">
           <div class="cert-icon">
-            <i class="fas fa-certificate"></i>
+            <i class="fas fa-brain"></i>
           </div>
-          <h3>Web Development Professional</h3>
-          <div class="cert-issuer">FreeCodeCamp</div>
+          <h3>Deep Learning with PyTorch: Zero to GANs</h3>
+          <div class="cert-issuer">freeCodeCamp</div>
           <div class="cert-date">2024</div>
-          <p>Comprehensive certification covering modern web development practices and frameworks.</p>
+          <p>Comprehensive deep learning course covering neural networks, GANs, and PyTorch fundamentals.</p>
         </div>
         <div class="cert-card">
           <div class="cert-icon">
-            <i class="fas fa-award"></i>
+            <i class="fab fa-microsoft"></i>
           </div>
-          <h3>Python Programming</h3>
-          <div class="cert-issuer">Coursera</div>
+          <h3>C# Tutorial Full Course for Beginners</h3>
+          <div class="cert-issuer">freeCodeCamp</div>
           <div class="cert-date">2024</div>
-          <p>Advanced Python programming with focus on data structures and algorithms.</p>
+          <p>Complete C# programming course covering fundamentals and object-oriented programming.</p>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon">
+            <i class="fab fa-python"></i>
+          </div>
+          <h3>100 Days of Code: Complete Python Pro Bootcamp</h3>
+          <div class="cert-issuer">Dr. Angela Yu / Udemy</div>
+          <div class="cert-date">2023</div>
+          <p>Intensive Python bootcamp covering web development, data science, and automation.</p>
         </div>
         <div class="cert-card">
           <div class="cert-icon">
             <i class="fas fa-trophy"></i>
           </div>
-          <h3>Machine Learning Fundamentals</h3>
-          <div class="cert-issuer">Google</div>
+          <h3>Brazilian Informatics Olympiad</h3>
+          <div class="cert-issuer">National Phase Selection</div>
           <div class="cert-date">2023</div>
-          <p>Introduction to ML concepts, neural networks, and practical applications.</p>
-        </div>
-        <div class="cert-card">
-          <div class="cert-icon">
-            <i class="fas fa-medal"></i>
-          </div>
-          <h3>Database Management</h3>
-          <div class="cert-issuer">Oracle</div>
-          <div class="cert-date">2023</div>
-          <p>SQL and database design principles for scalable applications.</p>
+          <p>Selected to compete in the national phase of Brazil's prestigious informatics competition.</p>
         </div>
       </div>
     </div>
@@ -146,6 +153,7 @@
 
   <section id="works">
     <div class="container">
+      <div class="deco-circle deco-circle-3"></div>
       <h2 class="section-title">Works</h2>
       <div class="works-carousel">
         <div class="work-card">
@@ -186,15 +194,17 @@
 
   <section id="contact">
     <div class="container">
-      <h2 class="section-title">Wanna talk?</h2>
+      <div class="deco-line deco-line-4"></div>
+      <div class="deco-globe"></div>
+      <h2 class="section-title">Let's Work Together</h2>
       <div class="contact-wrapper">
         <div class="contact-info">
           <h3>Get In Touch</h3>
-          <p>I'm always open to listen to your craziest ideas or most intriguing questions.</p>
+          <p>Have a project in mind? Let's create something amazing together. I'm always open to discussing new opportunities and innovative ideas.</p>
           <div class="contact-details">
             <div class="contact-item">
               <i class="fas fa-envelope"></i>
-              <span>lucasavelino2007@gmail.com</span>
+              <span>lucas@example.com</span>
             </div>
             <div class="contact-item">
               <i class="fas fa-map-marker-alt"></i>
@@ -267,9 +277,11 @@
       if (isExpanded) {
         aboutExtended.classList.remove('expanded');
         readMoreBtn.textContent = 'Read More';
+        readMoreBtn.classList.remove('expanded');
       } else {
         aboutExtended.classList.add('expanded');
         readMoreBtn.textContent = 'OK, Got It Buddy! 👍';
+        readMoreBtn.classList.add('expanded');
       }
     });
 
@@ -279,6 +291,29 @@
       e.preventDefault();
       alert('Message sent! Thank you for reaching out. I\'ll get back to you soon!');
       contactForm.reset();
+    });
+
+    // Infinite scroll for works carousel
+    const carousel = document.querySelector('.works-carousel');
+    const cards = Array.from(document.querySelectorAll('.work-card'));
+    
+    // Clone cards for infinite effect
+    cards.forEach(card => {
+      const clone = card.cloneNode(true);
+      carousel.appendChild(clone);
+    });
+    
+    let scrollAmount = 0;
+    const cardWidth = 380 + 32; // card width + gap
+    const totalWidth = cardWidth * cards.length;
+    
+    carousel.addEventListener('scroll', () => {
+      scrollAmount = carousel.scrollLeft;
+      
+      // Reset to beginning when reaching the end
+      if (scrollAmount >= totalWidth) {
+        carousel.scrollLeft = 0;
+      }
     });
   </script>
 </body>
