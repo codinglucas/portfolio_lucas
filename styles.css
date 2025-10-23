@@ -299,29 +299,6 @@ section.visible {
   padding: 4rem;
   box-shadow: 10px 10px 0 #e0e0e0;
   transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  --mouse-x: 50%;
-  --mouse-y: 50%;
-}
-
-.glass-card::before {
-  content: '';
-  position: absolute;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(147, 129, 255, 0.2) 0%, rgba(147, 129, 255, 0.05) 40%, transparent 70%);
-  border-radius: 50%;
-  left: var(--mouse-x);
-  top: var(--mouse-y);
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-  opacity: 0;
-}
-
-.glass-card:hover::before {
-  opacity: 1;
 }
 
 .glass-card:hover {
