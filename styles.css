@@ -368,7 +368,7 @@ section.visible {
 
 .tech-item {
   background: #ffffff;
-  border: 2px solid #000000;
+  border: 2px solid #ffffff;
   border-radius: 0;
   padding: 2rem 1rem;
   display: flex;
@@ -395,12 +395,12 @@ section.visible {
 
 .tech-item:hover {
   transform: translate(-5px, -5px);
-  box-shadow: 5px 5px 0 #000000;
+  box-shadow: 5px 5px 0 #ffffff;
 }
 
 .tech-item:active {
   transform: translate(-2px, -2px);
-  box-shadow: 2px 2px 0 #000000;
+  box-shadow: 2px 2px 0 #ffffff;
 }
 
 .tech-item i {
@@ -452,7 +452,7 @@ section.visible {
 .work-card {
   min-width: 380px;
   background: #ffffff;
-  border: 2px solid #000000;
+  border: 2px solid #ffffff;
   border-radius: 0;
   padding: 2.5rem;
   scroll-snap-align: center;
@@ -474,12 +474,12 @@ section.visible {
 
 .work-card:hover {
   transform: translate(-5px, -5px);
-  box-shadow: 5px 5px 0 #000000;
+  box-shadow: 5px 5px 0 #ffffff;
 }
 
 .work-card:active {
   transform: translate(-2px, -2px);
-  box-shadow: 2px 2px 0 #000000;
+  box-shadow: 2px 2px 0 #ffffff;
 }
 
 .work-icon {
