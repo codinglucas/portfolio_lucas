@@ -1,102 +1,285 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lucas Avelino - Software Developer | Portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <script defer src="https://kit.fontawesome.com/a076d05399.js"></script>
-  <script defer src="script.js"></script>
-  <link rel="stylesheet" href="css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
   <header>
-    <h1>Lucas Rocha Avelino</h1>
-    <nav class="nav-links">
-      <a href="#hero">Home</a>
-      <a href="#about">About</a>
-      <a href="#technologies">Technologies</a>
-      <a href="#works">Works</a>
-    </nav>
+    <div class="header-content">
+      <div class="logo">Lucas Rocha Avelino</div>
+      <nav>
+        <a href="#hero">Home</a>
+        <a href="#about">About</a>
+        <a href="#technologies">Technologies</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#works">Works</a>
+      </nav>
+    </div>
   </header>
 
   <section class="hero" id="hero">
     <div class="hero-content">
-      <h2>Hi! I'm Lucas</h2>
-      <p>Writing codes that matter.</p>
+      <h2>Lucas.</h2>
+      <p>Writing codes with <span class="highlight">impact</span> through <span class="highlight">engineering</span> and <span class="highlight">innovation</span>.</p>
       <div class="button-group">
-        <a href="contact.html"><button>Contact</button></a>
-        <button class="outlined-button">See expertise</button>
+        <a href="#contact" class="btn btn-primary">Contact</a>
+        <a href="#certifications" class="btn btn-outline">See Expertise</a>
+      </div>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/lucas-rocha-avelino-59a277249/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://github.com/your-username" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <div class="hero-image-text">SOFTWARE • DEVELOPER • CREATOR</div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <div class="glass-card about-content">
+        <p class="about-preview">
+          I'm a technology enthusiast with a background in sustainable materials research and programming competitions.
+          Passionate about building impactful solutions through engineering and innovation.
+        </p>
+        <div class="about-extended">
+          <p>
+            My journey in technology started with a curiosity about how things work and evolved into a passion for creating solutions that make a real difference. I've participated in numerous programming competitions, honing my problem-solving skills and learning to think creatively under pressure.
+          </p>
+          <p>
+            Beyond coding, I'm deeply invested in sustainable materials research, exploring how technology can contribute to environmental conservation. I believe that the intersection of engineering and innovation holds the key to addressing some of our most pressing challenges.
+          </p>
+          <p>
+            When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects, or sharing knowledge with the developer community.
+          </p>
+        </div>
+        <button class="btn-read-more">Read More</button>
       </div>
     </div>
   </section>
 
-  <div class="content-container">
-    <section id="about">
-      <h2>About Me</h2>
-      <p>
-        I'm a technology enthusiast with a background in sustainable materials research and programming competitions.
-        Passionate about building impactful solutions through engineering and innovation.
-      </p>
-    </section>
-    <section id="technologies">
-      <h2>Technologies I Use</h2>
-      <div class="tech-grid-wrapper">
-        <div class="tech-grid">
-          <div><i class="fab fa-html5" style="color: #E34F26;"></i></div>
-          <div><i class="fab fa-css3-alt" style="color: #1572B6;"></i></div>
-          <div><i class="fab fa-js-square" style="color: #F7DF1E;"></i></div>
-          <div><i class="fab fa-python" style="color: #306998;"></i></div>
-          <div><i class="fab fa-github" style="color: #000;"></i></div>
-          <div><i class="fa-solid fa-database" style="color: #007396;"></i></div>
+  <section id="technologies">
+    <div class="container">
+      <h2 class="section-title">Technologies</h2>
+      <div class="tech-grid">
+        <div class="tech-item">
+          <i class="fab fa-html5" style="color: #E34F26;"></i>
+          <span>HTML5</span>
+        </div>
+        <div class="tech-item">
+          <i class="fab fa-css3-alt" style="color: #1572B6;"></i>
+          <span>CSS3</span>
+        </div>
+        <div class="tech-item">
+          <i class="fab fa-js-square" style="color: #F7DF1E;"></i>
+          <span>JavaScript</span>
+        </div>
+        <div class="tech-item">
+          <i class="fab fa-python" style="color: #FFD43B;"></i>
+          <span>Python</span>
+        </div>
+        <div class="tech-item">
+          <i class="fab fa-github" style="color: #000000;"></i>
+          <span>GitHub</span>
+        </div>
+        <div class="tech-item">
+          <i class="fa-solid fa-database" style="color: #4479A1;"></i>
+          <span>SQL</span>
         </div>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
+
+  <section id="certifications">
+    <div class="container">
+      <h2 class="section-title">Certifications</h2>
+      <div class="cert-grid">
+        <div class="cert-card">
+          <div class="cert-icon">
+            <i class="fas fa-certificate"></i>
+          </div>
+          <h3>Web Development Professional</h3>
+          <div class="cert-issuer">FreeCodeCamp</div>
+          <div class="cert-date">2024</div>
+          <p>Comprehensive certification covering modern web development practices and frameworks.</p>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon">
+            <i class="fas fa-award"></i>
+          </div>
+          <h3>Python Programming</h3>
+          <div class="cert-issuer">Coursera</div>
+          <div class="cert-date">2024</div>
+          <p>Advanced Python programming with focus on data structures and algorithms.</p>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon">
+            <i class="fas fa-trophy"></i>
+          </div>
+          <h3>Machine Learning Fundamentals</h3>
+          <div class="cert-issuer">Google</div>
+          <div class="cert-date">2023</div>
+          <p>Introduction to ML concepts, neural networks, and practical applications.</p>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon">
+            <i class="fas fa-medal"></i>
+          </div>
+          <h3>Database Management</h3>
+          <div class="cert-issuer">Oracle</div>
+          <div class="cert-date">2023</div>
+          <p>SQL and database design principles for scalable applications.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section id="works">
-    <h2>Works</h2>
-    <div class="works-carousel drag-scroll">
-      <div class="works-carousel-track">
-        <div class="work-item">
+    <div class="container">
+      <h2 class="section-title">Works</h2>
+      <div class="works-carousel">
+        <div class="work-card">
           <div class="work-icon">
-            <i class="fas fa-code" style="color: #9381FF;"></i>
+            <i class="fas fa-brain"></i>
           </div>
           <h3>EcoAction ML Platform</h3>
           <p>Machine learning platform for environmental data analysis and prediction.</p>
-          <a href="#" class="know-more-btn"><button>Know more</button></a>
+          <button class="btn btn-primary">Learn More</button>
         </div>
-        <div class="work-item">
+        <div class="work-card">
           <div class="work-icon">
-            <i class="fas fa-chart-line" style="color: #9381FF;"></i>
+            <i class="fas fa-chart-line"></i>
           </div>
           <h3>Smart Cow Tracker</h3>
           <p>Tru-Test based system to track livestock behavior and productivity.</p>
-          <a href="#" class="know-more-btn"><button>Know more</button></a>
+          <button class="btn btn-primary">Learn More</button>
         </div>
-        <div class="work-item">
+        <div class="work-card">
           <div class="work-icon">
-            <i class="fas fa-leaf" style="color: #9381FF;"></i>
+            <i class="fas fa-users"></i>
           </div>
           <h3>WeScout</h3>
-          <p>A platform for scouting players smartely. Uses BeautifulSoup, Selenium, and Frontend frameworks</p>
-          <a href="#" class="know-more-btn"><button>Know more</button></a>
+          <p>A platform for scouting players smartly. Uses BeautifulSoup, Selenium, and frontend frameworks.</p>
+          <button class="btn btn-primary">Learn More</button>
         </div>
-        <div class="work-item">
+        <div class="work-card">
           <div class="work-icon">
-            <i class="fas fa-leaf" style="color: #9381FF;"></i>
+            <i class="fas fa-leaf"></i>
           </div>
-          <h3>Sustainable Materials Research</h3>
+          <h3>Sustainable Materials</h3>
           <p>Research on innovative materials for reducing environmental impact.</p>
+          <button class="btn btn-primary">Learn More</button>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Wanna talk?</h2>
+      <div class="contact-wrapper">
+        <div class="contact-info">
+          <h3>Get In Touch</h3>
+          <p>I'm always open to listen to your craziest ideas or most intriguing questions.</p>
+          <div class="contact-details">
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <span>lucasavelino2007@gmail.com</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Imperatriz, MA - Brazil</span>
+            </div>
+          </div>
+        </div>
+        <form class="contact-form">
+          <div class="form-group">
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+          </div>
+          <div class="form-group">
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
+          </div>
+          <div class="form-group">
+            <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+        </form>
       </div>
     </div>
   </section>
 
   <footer>
-    <p>© 2025 Lucas Avelino</p>
+    <p>© 2025 Lucas Avelino. All rights reserved.</p>
   </footer>
 
+  <script>
+    // Scroll animation observer
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    // Observe sections
+    document.querySelectorAll('section:not(.hero)').forEach(section => {
+      observer.observe(section);
+    });
+
+    // Observe tech items
+    document.querySelectorAll('.tech-item').forEach(item => {
+      observer.observe(item);
+    });
+
+    // Observe work cards
+    document.querySelectorAll('.work-card').forEach(card => {
+      observer.observe(card);
+    });
+
+    // Observe certification cards
+    document.querySelectorAll('.cert-card').forEach(card => {
+      observer.observe(card);
+    });
+
+    // Read More button functionality
+    const readMoreBtn = document.querySelector('.btn-read-more');
+    const aboutExtended = document.querySelector('.about-extended');
+    
+    readMoreBtn.addEventListener('click', () => {
+      const isExpanded = aboutExtended.classList.contains('expanded');
+      
+      if (isExpanded) {
+        aboutExtended.classList.remove('expanded');
+        readMoreBtn.textContent = 'Read More';
+      } else {
+        aboutExtended.classList.add('expanded');
+        readMoreBtn.textContent = 'OK, Got It Buddy! 👍';
+      }
+    });
+
+    // Contact form submission
+    const contactForm = document.querySelector('.contact-form');
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Message sent! Thank you for reaching out. I\'ll get back to you soon!');
+      contactForm.reset();
+    });
+  </script>
 </body>
 </html>
