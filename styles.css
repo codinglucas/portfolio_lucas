@@ -266,6 +266,23 @@ section.visible {
   transform: translateY(0);
 }
 
+/* Dark sections */
+#technologies {
+  background: #1a1a1a;
+}
+
+#technologies .section-title {
+  color: #ffffff;
+}
+
+#works {
+  background: #0f0f0f;
+}
+
+#works .section-title {
+  color: #ffffff;
+}
+
 .section-title {
   font-size: 3.5rem;
   font-weight: 900;
@@ -319,9 +336,9 @@ section.visible {
   display: block;
   margin: 2rem auto 0;
   padding: 0.8rem 2rem;
-  background: #000000;
-  color: #ffffff;
-  border: none;
+  background: transparent;
+  color: #000000;
+  border: 2px solid #000000;
   font-family: inherit;
   font-weight: 700;
   text-transform: uppercase;
@@ -331,14 +348,14 @@ section.visible {
   font-size: 0.85rem;
 }
 
-.btn-read-more:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 5px 0 #e0e0e0;
+.btn-read-more:hover,
+.btn-read-more.expanded {
+  background: #000000;
+  color: #ffffff;
 }
 
 .btn-read-more:active {
-  transform: translateY(-1px);
-  box-shadow: 0 3px 0 #e0e0e0;
+  transform: scale(0.98);
 }
 
 .tech-grid {
@@ -412,6 +429,7 @@ section.visible {
   padding: 2rem 0.5rem;
   scrollbar-width: thin;
   scrollbar-color: #000000 #e0e0e0;
+  scroll-behavior: smooth;
 }
 
 .works-carousel::-webkit-scrollbar {
@@ -571,6 +589,14 @@ footer p {
     grid-template-columns: 1fr;
     gap: 3rem;
     padding: 2.5rem;
+  }
+
+  /* Hide decorative elements on mobile */
+  .deco-circle,
+  .deco-line,
+  .deco-star,
+  .deco-globe {
+    display: none;
   }
 }
 
@@ -770,4 +796,149 @@ footer p {
 .btn-full {
   width: 100%;
   padding: 1rem;
+}
+
+/* Decorative Elements */
+.deco-circle {
+  position: absolute;
+  border: 2px solid #000000;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.deco-circle-1 {
+  width: 80px;
+  height: 80px;
+  top: 10%;
+  left: 5%;
+  opacity: 0.3;
+}
+
+.deco-circle-2 {
+  width: 120px;
+  height: 120px;
+  top: 15%;
+  right: 10%;
+  opacity: 0.2;
+}
+
+.deco-circle-3 {
+  width: 100px;
+  height: 100px;
+  top: 20%;
+  left: 8%;
+  opacity: 0.25;
+}
+
+.deco-line {
+  position: absolute;
+  background: #000000;
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+.deco-line-1 {
+  width: 2px;
+  height: 100px;
+  top: 20%;
+  right: 15%;
+}
+
+.deco-line-2 {
+  width: 150px;
+  height: 2px;
+  top: 10%;
+  right: 5%;
+}
+
+.deco-line-3 {
+  width: 2px;
+  height: 120px;
+  top: 15%;
+  left: 10%;
+}
+
+.deco-line-4 {
+  width: 200px;
+  height: 2px;
+  top: 10%;
+  left: 5%;
+}
+
+.deco-star {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 25%;
+  right: 8%;
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+.deco-star::before,
+.deco-star::after {
+  content: '';
+  position: absolute;
+  background: #000000;
+}
+
+.deco-star::before {
+  width: 2px;
+  height: 30px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.deco-star::after {
+  width: 30px;
+  height: 2px;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.deco-star-2 {
+  top: 30%;
+  right: auto;
+  left: 15%;
+}
+
+.deco-globe {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  top: 15%;
+  right: 10%;
+  border: 2px solid #000000;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+.deco-globe::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: #000000;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.deco-globe::after {
+  content: '';
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  border: 2px solid #000000;
+  border-radius: 50%;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: none;
+  border-right: none;
+}
+
+.container {
+  position: relative;
 }
