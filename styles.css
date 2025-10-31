@@ -92,6 +92,7 @@ nav a:active {
   background: transparent;
   padding: 4rem 6rem;
   text-align: left;
+  position: relative;
 }
 
 .hero-content h2 {
@@ -130,23 +131,31 @@ nav a:active {
   align-items: center;
   justify-content: center;
   position: relative;
-  overflow: hidden;
+  overflow: visible; /* changed from hidden */
+  padding-bottom: 4rem; /* add space for absolutely positioned image */
 }
 
-.hero-image::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: repeating-linear-gradient(
-    45deg,
-    transparent,
-    transparent 10px,
-    rgba(255,255,255,0.03) 10px,
-    rgba(255,255,255,0.03) 20px
-  );
+.profile-image {
+  width: 420px; /* slightly larger for better presence */
+  height: auto;
+  object-fit: contain;
+  position: absolute; /* place freely inside hero */
+  bottom: 4.5rem;
+  right: 8rem;
+  z-index: 2;
+  filter: grayscale(20%);
+  transition: all 0.35s ease;
+  border-radius: 10px; /* soft corners */
+  background: #ffffff; /* white frame behind image */
+  padding: 8px;
+  box-shadow: 18px 18px 0 rgba(0,0,0,0.06), 6px 6px 20px rgba(0,0,0,0.12);
+  transform: rotate(-1.25deg);
+}
+
+.profile-image:hover {
+  filter: grayscale(0%);
+  transform: rotate(0deg) scale(1.03);
+  box-shadow: 22px 22px 0 rgba(0,0,0,0.06), 8px 8px 26px rgba(0,0,0,0.14);
 }
 
 .hero-image-text {
@@ -159,7 +168,7 @@ nav a:active {
   color: #ffffff;
   position: absolute;
   right: 3rem;
-  z-index: 1;
+  z-index: 3;
 }
 
 .button-group {
@@ -246,6 +255,7 @@ nav a:active {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 2rem;
+  position: relative;
 }
 
 section {
@@ -420,37 +430,31 @@ section.visible {
   color: #000000;
 }
 
+.works-carousel-wrapper {
+  overflow: hidden;
+  position: relative;
+}
+
 .works-carousel {
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
   display: flex;
   gap: 2rem;
   padding: 2rem 0.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
   scrollbar-width: thin;
-  scrollbar-color: #000000 #e0e0e0;
+  scrollbar-color: #ffffff #333333;
   scroll-behavior: smooth;
+
+  /* Ensure all cards stretch to the same height (so buttons align) */
+  align-items: stretch;
 }
 
-.works-carousel::-webkit-scrollbar {
-  height: 8px;
-}
-
-.works-carousel::-webkit-scrollbar-track {
-  background: #e0e0e0;
-}
-
-.works-carousel::-webkit-scrollbar-thumb {
-  background: #000000;
-  border-radius: 0;
-}
-
-.works-carousel::-webkit-scrollbar-thumb:hover {
-  background: #333333;
-}
-
+/* Make cards use column layout so we can push the button to the bottom */
 .work-card {
-  min-width: 380px;
+  /* Make cards identical width and prevent content from forcing expansion */
+  flex: 0 0 380px;
+  width: 380px;
   background: #ffffff;
   border: 2px solid #ffffff;
   border-radius: 0;
@@ -458,19 +462,28 @@ section.visible {
   scroll-snap-align: center;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   flex-shrink: 0;
-  opacity: 0;
-  transform: translateX(30px);
+  position: relative;
+  box-sizing: border-box;
+  /* ensure long text wraps instead of expanding the card */
+  overflow-wrap: anywhere;
+  word-break: break-word;
+
+  /* NEW: layout so content stacks and button can be pushed down */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Push primary button to bottom so all buttons line up horizontally */
+.work-card .btn {
+  margin-top: auto;
+  /* keep full width behavior */
+  width: 100%;
 }
 
 .work-card.visible {
   opacity: 1;
   transform: translateX(0);
 }
-
-.work-card:nth-child(1).visible { transition-delay: 0.1s; }
-.work-card:nth-child(2).visible { transition-delay: 0.2s; }
-.work-card:nth-child(3).visible { transition-delay: 0.3s; }
-.work-card:nth-child(4).visible { transition-delay: 0.4s; }
 
 .work-card:hover {
   transform: translate(-5px, -5px);
@@ -482,6 +495,13 @@ section.visible {
   box-shadow: 2px 2px 0 #ffffff;
 }
 
+.work-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
 .work-icon {
   width: 70px;
   height: 70px;
@@ -490,7 +510,6 @@ section.visible {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1.5rem;
   transition: transform 0.3s ease;
 }
 
@@ -501,6 +520,26 @@ section.visible {
 .work-icon i {
   font-size: 2rem;
   color: #ffffff;
+}
+
+.external-link {
+  width: 40px;
+  height: 40px;
+  background: #000000;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.external-link:hover {
+  transform: rotate(-5deg) scale(1.1);
+}
+
+.external-link i {
+  font-size: 1.2rem;
 }
 
 .work-card h3 {
@@ -531,88 +570,6 @@ footer {
 footer p {
   color: #ffffff;
   font-size: 0.95rem;
-}
-
-@media (max-width: 768px) {
-  .hero {
-    grid-template-columns: 1fr;
-    padding: 0;
-    min-height: auto;
-  }
-
-  .hero-content {
-    padding: 3rem 2rem;
-    text-align: left;
-  }
-
-  .hero-content h2 {
-    font-size: 3.5rem;
-    letter-spacing: -2px;
-  }
-
-  .hero-content p {
-    font-size: 1.2rem;
-  }
-
-  .hero-image {
-    height: 50vh;
-  }
-
-  .button-group {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .social-links {
-    justify-content: flex-start;
-  }
-
-  nav {
-    gap: 1rem;
-    font-size: 0.9rem;
-  }
-
-  .section-title {
-    font-size: 2.5rem;
-  }
-
-  .tech-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-  }
-
-  .work-card {
-    min-width: 300px;
-  }
-
-  .contact-wrapper {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-    padding: 2.5rem;
-  }
-
-  /* Hide decorative elements on mobile */
-  .deco-circle,
-  .deco-line,
-  .deco-star,
-  .deco-globe {
-    display: none;
-  }
-}
-
-@media (max-width: 480px) {
-  .header-content {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .hero-content h2 {
-    font-size: 2.5rem;
-  }
-
-  .tech-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
 /* Certifications Section */
@@ -798,6 +755,27 @@ footer p {
   padding: 1rem;
 }
 
+.form-status {
+  margin-top: 2rem;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.form-status .success {
+  color: #2d8659;
+  background: #d4edda;
+  padding: 1rem;
+  border: 2px solid #2d8659;
+}
+
+.form-status .error {
+  color: #721c24;
+  background: #f8d7da;
+  padding: 1rem;
+  border: 2px solid #721c24;
+}
+
 /* Decorative Elements */
 .deco-circle {
   position: absolute;
@@ -939,6 +917,92 @@ footer p {
   border-right: none;
 }
 
-.container {
-  position: relative;
+@media (max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 0;
+    min-height: auto;
+  }
+
+  .hero-content {
+    padding: 3rem 2rem;
+    text-align: left;
+  }
+
+  .hero-content h2 {
+    font-size: 3.5rem;
+    letter-spacing: -2px;
+  }
+
+  .hero-content p {
+    font-size: 1.2rem;
+  }
+
+  .hero-image {
+    height: 50vh;
+    padding-bottom: 0;
+  }
+
+  .profile-image {
+    position: relative; /* revert to normal flow */
+    bottom: auto;
+    right: auto;
+    margin: 1.25rem auto 0;
+    width: 250px;
+    transform: none;
+    box-shadow: 6px 6px 18px rgba(0,0,0,0.08);
+    padding: 6px;
+  }
+
+  .hero-image-text {
+    right: 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  nav {
+    gap: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+  }
+
+  .tech-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .work-card {
+    min-width: 300px;
+  }
+
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 2.5rem;
+  }
+
+  /* Hide decorative elements on mobile */
+  .deco-circle,
+  .deco-line,
+  .deco-star,
+  .deco-globe {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-content {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .hero-content h2 {
+    font-size: 2.5rem;
+  }
+
+  .tech-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
